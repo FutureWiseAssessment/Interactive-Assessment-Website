@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureWise | Assessment</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="assessment-style.css">
+</head>
+
+<body>
+    <div class="site-glow site-glow-one"></div>
+    <div class="site-glow site-glow-two"></div>
+    <div class="container py-5 position-relative">
+        <header class="text-center mb-5 hero-header">
+            <div class="hero-badge mb-3">
+                <i class="bi bi-stars me-1"></i> CAM HIGH • CAREER GUIDANCE
+            </div>
+            <h1 class="fw-bold display-4 hero-title">
+                <span class="hero-icon"><i class="bi bi-mortarboard-fill"></i></span>
+                FutureWise
+            </h1>
+            <p class="hero-subtitle fs-5 mb-1">Skills & Career Assessment</p>
+            <p class="text-light-emphasis fs-6 mb-0">
+                Discover your strengths and find a course that fits you.
+            </p>
+        </header>
+
+        <!-- STEP 1: SUBJECT SELECTION -->
+        <div id="stepSubjectSelection" class="glass-card p-4 p-md-5">
+            <div class="section-kicker"><i class="bi bi-compass me-1"></i> BEGIN YOUR JOURNEY</div>
+            <h4 class="fw-bold text-blue mb-4 text-center section-title">
+                Step 1: Select Your Assessment Subjects
+            </h4>
+
+            <div class="row g-4 justify-content-center mb-4">
+                <div class="col-md-4">
+                    <input type="checkbox" id="chkMath" class="subject-checkbox d-none" value="math">
+                    <label for="chkMath" class="w-100">
+                        <div class="card subject-card p-4 text-center h-100">
+                            <i class="bi bi-check-circle-fill selected-badge"></i>
+                            <i class="bi bi-calculator text-blue display-4 mb-2"></i>
+                            <h4 class="fw-bold text-blue">Mathematics</h4>
+                            <p class="text-muted small">Algebra, Geometry, Trigonometry, Statistics</p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="checkbox" id="chkScience" class="subject-checkbox d-none" value="science">
+                    <label for="chkScience" class="w-100">
+                        <div class="card subject-card p-4 text-center h-100">
+                            <i class="bi bi-check-circle-fill selected-badge"></i>
+                            <i class="bi bi-journal-medical text-gold display-4 mb-2"></i>
+                            <h4 class="fw-bold text-blue">Science</h4>
+                            <p class="text-muted small">Biology, Chemistry, Physics, Earth Science</p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="checkbox" id="chkLang" class="subject-checkbox d-none" value="lang">
+                    <label for="chkLang" class="w-100">
+                        <div class="card subject-card p-4 text-center h-100">
+                            <i class="bi bi-check-circle-fill selected-badge"></i>
+                            <i class="bi bi-chat-quote text-blue display-4 mb-2"></i>
+                            <h4 class="fw-bold text-blue">Language & Comm</h4>
+                            <p class="text-muted small">Grammar, Comprehension, Logic, Literature</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-gold btn-lg px-5 shadow" onclick="startAssessment()">
+                    Start Assessment
+                    <i class="bi bi-arrow-right-circle ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 2: QUIZ -->
+        <div id="stepQuiz" class="d-none">
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <button class="btn btn-outline-light" onclick="goBackToSelection()">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Back to Subject Selection
+                </button>
+
+                <span class="badge bg-gold-theme fs-6" id="selectedSubjectsBadge">
+                    Selected Subjects: 0
+                </span>
+            </div>
+
+            <div class="glass-card p-4 p-md-5 mb-4">
+                <div id="quizContainer"></div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <button class="btn btn-outline-secondary" onclick="goBackToSelection()">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Back
+                    </button>
+
+                    <button class="btn btn-gold btn-lg px-4" onclick="submitAssessment()">
+                        Submit Answers
+                        <i class="bi bi-check-circle ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2.5: ACADEMIC RESULTS -->
+        <div id="stepAcademicResults" class="d-none results-area">
+            <div class="mb-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <span class="badge bg-gold-theme fs-6">Part 1 Complete</span>
+                <span class="small text-light">Academic Strengths Results</span>
+            </div>
+
+            <div class="glass-card p-4 p-md-5 mb-4 text-center result-header-card">
+                <div class="result-badge">PART 1 RESULTS</div>
+                <h1 class="fw-bold result-main-title">Your Academic Strengths</h1>
+                <p class="result-intro mb-0">
+                    Here are your results from the academic assessment. These recommendations are based only on your Part 1 performance and are meant to help you explore possible courses.
+                </p>
+            </div>
+
+            <div id="academicScoreCards" class="row g-4 mb-4"></div>
+
+            <div class="result-panel mb-4">
+                <h2><span>🎓</span> Courses to Explore Based on Your Academic Strengths</h2>
+                <p class="text-muted">Only courses connected to academic areas that meet the minimum performance level are shown. Lower-scoring subjects do not generate Part 1 course recommendations.</p>
+                <div id="academicCollegeResults" class="recommendation-grid"></div>
+            </div>
+
+            <!-- BEFORE YOU CONTINUE -->
+<div class="before-continue-card">
+    <h2>💡 Before You Continue</h2>
+
+    <p>
+        <strong>Part 2 focuses on your interests, preferences, and possible
+        career pathways.</strong>
+    </p>
+
+    <p>
+        There are no right or wrong answers. Choose the option that best
+        represents your interests, personality, skills, and the type of work
+        you would enjoy.
+    </p>
+
+    <p>
+        Your answers will be used together with your Part 1 Academic Strengths
+        results to identify courses, career fields, and TVL/TechPro pathways
+        that you may want to explore.
+    </p>
+
+    <p>
+        <strong>Remember:</strong> FutureWise does not choose a course or career
+        for you. The results are meant to help you understand your options and
+        support you in making your own decision.
+    </p>
+
+    <p class="mb-0">
+        🌸 Take your time, answer honestly, and choose what feels most like you.
+    </p>
+
+    </div>
+</div>
+
+            <div class="result-actions">
+                <button class="btn btn-gold btn-lg" onclick="continueToPart2()">
+                    Continue to Part 2 <i class="bi bi-arrow-right-circle ms-1"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 3: INTERESTS & CAREER PREFERENCES -->
+        <div id="stepInterest" class="d-none">
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-gold-theme fs-6">Part 2 of 2 • 15 Questions</span>
+                </div>
+                <span class="small text-light">Interests & Career Preferences</span>
+            </div>
+
+            <div class="glass-card p-4 p-md-5 mb-4">
+                <div class="section-kicker"><i class="bi bi-heart-fill me-1"></i> DISCOVER WHAT FITS YOU</div>
+                <h2 class="fw-bold text-blue mb-2">Part 2: Interests & Career Preferences</h2>
+                <p class="text-muted mb-4">
+                    Choose the ONE answer (A–K) that best describes you. Each choice represents a different interest area. Your responses will help FutureWise identify the career and course areas that most match your interests.
+                </p>
+
+                <div class="progress mb-4" style="height: 9px;">
+                    <div id="interestProgressBar" class="progress-bar bg-gold-theme" style="width: 6.67%"></div>
+                </div>
+
+                <div id="interestQuestionContainer"></div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4 gap-2">
+                    <button id="interestBackBtn" class="btn btn-outline-secondary" onclick="previousInterestQuestion()">
+                        <i class="bi bi-arrow-left me-1"></i> Back
+                    </button>
+                    <button id="interestNextBtn" class="btn btn-gold btn-lg px-4" onclick="nextInterestQuestion()">
+                        Next <i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3: RESULTS -->
+        <div id="stepResults" class="d-none results-area">
+
+            <div class="mb-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <button class="btn btn-outline-light" onclick="restartAssessment()">
+                    <i class="bi bi-arrow-left-circle me-1"></i>
+                    Retake Assessment
+                </button>
+                <a href="index.html" class="btn btn-light result-home-btn">
+                    <i class="bi bi-house-fill me-1"></i>
+                    Back to Home
+                </a>
+            </div>
+
+            <div class="glass-card p-4 p-md-5 mb-4 text-center result-header-card">
+                <div class="result-badge">ASSESSMENT COMPLETE</div>
+                <h1 class="fw-bold result-main-title">Your FutureWise Results</h1>
+                <p class="result-intro mb-0">
+                    These results are designed to help you explore possible educational
+                    and career pathways based on your assessment performance.
+                </p>
+            </div>
+
+            <!-- SUBJECT SCORES ONLY -->
+            <div id="starsSummary" class="row g-4 mb-4"></div>
+
+            <!-- OVERALL STRENGTHS -->
+            <div class="result-panel mb-4">
+                <h2><span>🌟</span> Overall Strengths</h2>
+                <div id="strengthResults"></div>
+            </div>
+
+            <!-- COLLEGE COURSES -->
+            <div class="result-panel mb-4">
+                <h2><span>🎓</span> Recommended College Courses</h2>
+                <p class="text-muted">Part 2 recommendations are based on your interest profile. Compare these with your Part 1 academic results before choosing a program.</p>
+                <div id="collegeResults" class="recommendation-grid"></div>
+            </div>
+
+            <!-- CAREERS -->
+            <div class="result-panel mb-4">
+                <h2><span>💼</span> Related Career Options</h2>
+                <div id="careerResults" class="recommendation-grid"></div>
+            </div>
+
+            <!-- SCHOLARSHIPS -->
+            <div class="result-panel mb-4">
+                <h2><span>💰</span> Scholarship Opportunities</h2>
+                <div id="scholarshipResults" class="recommendation-grid"></div>
+                <p class="text-muted small mt-3 mb-0">Scholarship availability, qualifications, deadlines, and requirements can change. Verify current details with the official scholarship provider or your school guidance office.</p>
+            </div>
+
+            <!-- TVL / TECHPRO — PART 2 ONLY -->
+            <div class="result-panel mb-4">
+                <h2><span>🛠️</span> TVL / TechPro Pathways</h2>
+                <p class="text-muted">These practical pathways are shown only after Part 2 because they are matched to your interests and preferences.</p>
+                <div id="tvlResults" class="recommendation-grid"></div>
+            </div>
+
+
+<!-- TARGET COURSE ADVISOR -->
+            <div class="result-panel mb-4">
+                <h2><span>🎯</span> Target Course Advisor</h2>
+                <p class="advisor-description">
+                    Already have a college course in mind? Enter it below to see
+                    suggested areas you may want to strengthen.
+                </p>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-8">
+                        <input
+                            type="text"
+                            id="desiredCourse"
+                            class="form-control form-control-lg course-input"
+                            placeholder="Example: BS Computer Science">
+                    </div>
+                    <div class="col-md-4">
+                        <button
+                            class="btn btn-gold btn-lg w-100"
+                            onclick="showImprovement()">
+                            Check Improvement Areas
+                        </button>
+                    </div>
+                </div>
+
+                <div id="improvementResults" class="improvement-results"></div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="result-disclaimer mb-4">
+                <h2>Important Reminder</h2>
+                <p>
+                    FutureWise recommendations are based on your assessment responses
+                    and are intended to help you explore possible educational and
+                    career options.
+                </p>
+                <p>
+                    They do not determine the one correct college course or career for you.
+                </p>
+                <p class="mb-0">
+                    Consider discussing your results with your parents, teachers,
+                    or guidance counselor.
+                </p>
+            </div>
+
+            <div class="result-actions">
+                <button class="btn btn-outline-gold btn-lg" onclick="restartAssessment()">
+                    <i class="bi bi-arrow-repeat me-1"></i>
+                    Retake Assessment
+                </button>
+                <a href="index.html" class="btn btn-gold btn-lg">
+                    <i class="bi bi-house-fill me-1"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Separate JavaScript -->
+    <script src="script(4).js"></script>
+</body>
+</html>
