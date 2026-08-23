@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FutureWise | CAM HIGH Career Guidance</title>
+
+    <meta name="description"
+        content="FutureWise helps students discover college programs and career paths that match their interests, skills, and goals.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-area">
+            
+            <div class="logo-icon">
+                 <img src="futurewise-logo.png" alt="FutureWise Logo">
+                
+                </div>
+
+            <div>
+                <h1>FUTURE<span>WISE</span></h1>
+                <p>Discover Your Future</p>
+            </div>
+
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#assessment">Assessment</a>
+            <a href="#programs">College Programs</a>
+            <a href="#careers">Career Guide</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <button class="nav-button" onclick="startAssessment()">
+            Start Assessment
+        </button>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </header>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <p class="small-title">
+                    YOUR FUTURE STARTS HERE
+                </p>
+
+                <h2>
+                    DISCOVER YOUR
+                    <span>FUTURE</span>
+                </h2>
+
+                <p class="hero-description">
+
+                    Take our interactive career assessment and
+                    discover the college program and career path
+                    that best matches your strengths, interests,
+                    and goals.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-button" onclick="startAssessment()">
+                        📋 Start Assessment
+                    </button>
+
+                    <a href="#about" class="secondary-button">
+                        ⓘ Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO ILLUSTRATION -->
+
+            <div class="hero-illustration">
+
+                <div class="career-bubble-title">EXPLORE YOUR POSSIBILITIES</div>
+                <div class="career-orbit" aria-hidden="true"></div>
+
+                <div class="career-icon healthcare">🩺<span>Health</span></div>
+                <div class="career-icon technology">💻<span>ICT</span></div>
+                <div class="career-icon business">📊<span>Business</span></div>
+                <div class="career-icon technical">🔧<span>Technical</span></div>
+                <div class="career-icon hospitality">🏨<span>Hospitality</span></div>
+                <div class="career-icon agriculture">🌱<span>Agriculture</span></div>
+                <div class="career-icon education">📚<span>Education</span></div>
+                <div class="career-icon arts">🎨<span>Arts</span></div>
+                <div class="career-icon sports">🏃<span>Sports</span></div>
+                <div class="career-icon social">🧠<span>Social</span></div>
+            
+                <div class="student">
+                    <img src="futurewise-center-logo.png" alt="FutureWise Logo">
+                </div>
+
+             </div>
+
+            </div>
+        
+        </div>
+
+    </section>
+
+    <section class="how-it-works" id="about">
+
+        <div class="section-heading">
+
+            <p>OUR PROCESS</p>
+
+            <h2>
+                HOW IT <span>WORKS</span>
+            </h2>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="steps">
+
+            <!-- STEP 1 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <div class="step-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Take the Assessment
+                </h3>
+
+                <p>
+                    Answer a series of questions about
+                    your interests, skills, and preferences.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <div class="step-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Get Your Results
+                </h3>
+
+                <p>
+                    We analyze your answers and match you
+                    with the best college programs and careers.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <div class="step-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Explore Options
+                </h3>
+
+                <p>
+                    Discover program details, required
+                    skills, and career opportunities.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    4
+                </div>
+
+                <div class="step-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Plan Your Future
+                </h3>
+
+                <p>
+                    Use your results to guide your educational
+                    and career journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="statistics">
+
+        <div class="stat"><div class="stat-icon">📘</div><div><strong>3</strong><p>Academic Areas</p></div></div>
+        <div class="stat"><div class="stat-icon">❤️</div><div><strong>11</strong><p>Interest Areas</p></div></div>
+        <div class="stat"><div class="stat-icon">🎓</div><div><strong>10</strong><p>Career & Course Areas</p></div></div>
+        <div class="stat"><div class="stat-icon">🧭</div><div><strong>4</strong><p>Recommendation Types</p></div></div>
+
+    </section>
+
+    <section class="assessment-section" id="assessment">
+
+        <div class="assessment-content">
+
+            <p class="small-title">
+                CAREER ASSESSMENT
+            </p>
+
+            <h2>
+                FIND YOUR <span>PATH.</span>
+            </h2>
+
+            <p>
+                Take the FutureWise interactive assessment to explore your academic strengths,
+                interests, possible college programs, career paths, and other educational options.
+            </p>
+
+            <button class="primary-button" onclick="startAssessment()">
+                Start Assessment →
+            </button>
+</div>
+
+    </section>
+
+    <section class="programs-section" id="programs">
+
+        <div class="section-heading">
+
+            <p>EXPLORE</p>
+
+            <h2>
+                COLLEGE <span>PROGRAMS</span>
+            </h2>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="program-grid">
+
+            <div class="program-card"><div>💻</div><h3>Information & Communication Technology</h3><p>Explore computing, programming, software, networking, and digital technology.</p></div>
+            <div class="program-card"><div>🔧</div><h3>Technical & Engineering</h3><p>Discover engineering, technical problem-solving, design, and applied technology.</p></div>
+            <div class="program-card"><div>🩺</div><h3>Health & Life Sciences</h3><p>Explore healthcare, biology, laboratory science, and health-related programs.</p></div>
+            <div class="program-card"><div>📊</div><h3>Business & Entrepreneurship</h3><p>Learn about management, entrepreneurship, accounting, marketing, and business operations.</p></div>
+            <div class="program-card"><div>🏨</div><h3>Hospitality & Tourism</h3><p>Discover hospitality management, tourism, travel services, and guest experience.</p></div>
+            <div class="program-card"><div>🌱</div><h3>Agriculture & Environment</h3><p>Explore agriculture, natural resources, sustainability, conservation, and environmental science.</p></div>
+            <div class="program-card"><div>📚</div><h3>Education & Communication</h3><p>Explore teaching, communication, writing, media, and public information.</p></div>
+            <div class="program-card"><div>🎨</div><h3>Arts & Creative Industries</h3><p>Discover fine arts, multimedia, design, animation, photography, and creative media.</p></div>
+            <div class="program-card"><div>🏃</div><h3>Sports & Fitness</h3><p>Explore physical education, sports science, fitness, coaching, and sports management.</p></div>
+            <div class="program-card"><div>🧠</div><h3>Social & Community Services</h3><p>Learn about psychology, sociology, social work, communities, and human services.</p></div>
+
+        </div>
+
+    </section>
+
+    <section class="career-section" id="careers">
+
+        <div class="career-content">
+
+            <p class="small-title">
+                CAREER GUIDE
+            </p>
+
+            <h2>
+                FIND A CAREER THAT
+                <span>FITS YOU.</span>
+            </h2>
+
+            <p>
+                Your interests and strengths can help point
+                you toward a fulfilling career. FutureWise
+                helps you understand the possibilities.
+            </p>
+
+            <button class="outline-button" onclick="startAssessment()">
+                Explore Career Paths →
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="faq-section" id="faq">
+
+        <div class="section-heading">
+
+            <p>QUESTIONS</p>
+
+            <h2>
+                FREQUENTLY ASKED <span>QUESTIONS</span>
+            </h2>
+
+            <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+
+                <button onclick="toggleFAQ(this)">
+                    What is FutureWise?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    FutureWise is an interactive platform designed
+                    to help students explore college programs and
+                    possible career paths.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button onclick="toggleFAQ(this)">
+                    How does the assessment work?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    You answer questions about your interests,
+                    skills, preferences, and goals. Your answers
+                    are then used to provide recommendations.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button onclick="toggleFAQ(this)">
+                    Is the assessment free?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Yes. The FutureWise assessment is designed
+                    to be accessible to students.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-content">
+
+            <p class="small-title">
+                GET IN TOUCH
+            </p>
+
+            <h2>
+                HAVE QUESTIONS?
+            </h2>
+
+            <p>
+                We'd love to hear from you.
+                Send us a message and we'll get back to you.
+            </p>
+
+            <a href="tel:09108949698" class="primary-button">
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer class="project-footer">
+
+        <div class="project-footer-left">
+            <div class="school-brand">
+                <img src="camhigh-logo.png" alt="Camarines Sur National High School logo">
+                <div>
+                    <h3>Building Strong Futures</h3>
+                    <h4>Camarines Sur National High School</h4>
+                    <p class="school-role">Our School</p>
+                </div>
+            </div>
+
+            <p class="footer-message">
+                Helping students discover their strengths, explore educational opportunities,
+                and make informed choices for their future.
+            </p>
+        </div>
+
+        <div class="project-footer-right">
+            <h3>Presented By:</h3>
+            <p class="footer-section"><strong>12 PROG 2</strong></p>
+
+            <div class="team-list">
+                <p>👤 Ng Pee, Miya Angelique</p>
+                <p>👤 Pizarra, Daphne Josyne S.</p>
+                <p>👤 Romano, Erich M.</p>
+                <p>👤 San Juan, Kristine Cassandra I.</p>
+            </div>
+        </div>
+
+        <div class="project-footer-bottom">
+            <div class="footer-logo">FUTURE<span>WISE</span></div>
+            <p>Career Guidance &amp; Skills Assessment</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#assessment">Assessment</a>
+                <a href="#programs">Programs</a>
+                <a href="#careers">Careers</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">© 2026 FutureWise. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+    
+
+</body>
+
+</html>
